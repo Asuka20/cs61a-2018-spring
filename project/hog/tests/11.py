@@ -7,20 +7,18 @@ test = {
         {
           'code': r"""
           >>> swap_strategy(12, 60, 8, 6)
-          962aea5f59fc55bd65ccacf4603c8f22
-          # locked
+          0
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         },
         {
           'code': r"""
           >>> swap_strategy(30, 54, 8, 6)
-          327b19ffebddf93982e1ad2a4a6486f4
-          # locked
+          6
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         },
         {
           'code': r"""
