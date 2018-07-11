@@ -1,0 +1,28 @@
+{
+    "name": "Lab 3",
+    "endpoint": "cal/cs61a/sp18/lab03",
+    "src": [
+        "lab03.py",
+        "lab03_extra.py",
+        "tests/call_expressions.py",
+        "tests/skip_mul_ok.py"
+    ],
+    "tests": {
+        "lab03.py": "doctest",
+        "lab03_extra.py": "doctest",
+        "tests/call_expressions.py": "ok_test",
+        "tests/skip_mul_ok.py": "ok_test"
+    },
+    "default_tests": [
+        "gcd",
+        "hailstone"
+    ],
+    "protocols": [
+        "restore",
+        "file_contents",
+        "analytics",
+        "unlock",
+        "grading",
+        "backup"
+    ]
+}

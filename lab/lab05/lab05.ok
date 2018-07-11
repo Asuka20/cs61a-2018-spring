@@ -1,0 +1,37 @@
+{
+    "name": "Lab 5",
+    "endpoint": "cal/cs61a/sp18/lab05",
+    "src": [
+        "lab05.py",
+        "lab05_extra.py"
+    ],
+    "tests": {
+        "tests/dicts.py": "ok_test",
+        "lab05.py:map": "doctest",
+        "lab05.py:filter": "doctest",
+        "lab05.py:reduce": "doctest",
+        "lab05.py:acorn_finder": "doctest",
+        "lab05.py:replace_leaf": "doctest",
+        "lab05_extra.py:build_successors_table": "doctest",
+        "lab05_extra.py:construct_sent": "doctest",
+        "lab05_extra.py:prune_leaves": "doctest",
+        "lab05_extra.py:sprout_leaves": "doctest",
+        "lab05_extra.py:add_trees": "doctest"
+    },
+    "default_tests": [
+        "dicts",
+        "map",
+        "filter",
+        "reduce",
+        "acorn_finder",
+        "replace_leaf"
+    ],
+    "protocols": [
+        "restore",
+        "file_contents",
+        "unlock",
+        "grading",
+        "analytics",
+        "backup"
+    ]
+}
