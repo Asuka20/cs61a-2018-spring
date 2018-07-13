@@ -61,7 +61,7 @@ def enumerate(s, start=0):
     [[5, 'f'], [6, 'i'], [7, 'v'], [8, 'e']]
     """
     # BEGIN Question 0
-    "*** YOUR CODE HERE ***"
+    
     return zip([start + i for i in range(len(s))], s)
     # END Question 0
 
@@ -82,7 +82,7 @@ def mean(s):
     -0.5
     """
     # BEGIN Question 1
-    "*** YOUR CODE HERE ***"
+    
     assert s, 's must not be empty!'
     return sum(s) / len(s)
     # END Question 1

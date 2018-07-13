@@ -1,0 +1,28 @@
+{
+    "name": "Lab 8",
+    "endpoint": "cal/cs61a/sp18/lab08",
+    "src": [
+        "lab08.py"
+    ],
+    "tests": {
+        "lab08.py:deep_len": "doctest",
+        "lab08_extra.py": "doctest",
+        "tests/growth.py": "ok_test",
+        "tests/foobar.py": "ok_test",
+        "tests/attributes.py": "ok_test",
+        "tests/boom.py": "ok_test",
+        "tests/zap.py": "ok_test"
+    },
+    "default_tests": [
+        "deep_len",
+        "growth"
+    ],
+    "protocols": [
+        "restore",
+        "file_contents",
+        "unlock",
+        "grading",
+        "analytics",
+        "backup"
+    ]
+}

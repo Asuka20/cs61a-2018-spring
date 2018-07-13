@@ -94,7 +94,10 @@ def replace_leaf(t, old, new):
     >>> laerad == yggdrasil # Make sure original tree is unmodified
     True
     """
-    "*** YOUR CODE HERE ***"
+    
+    new_root = new if label(t) == old and is_leaf(t) else label(t)  
+    new_branches = [replace_leaf(node, old, new) for node in branches(t)]
+    return tree(new_root, new_branches)
 
 def print_move(origin, destination):
     """Print instructions to move a disk."""
@@ -128,7 +131,14 @@ def move_stack(n, start, end):
     Move the top disk from rod 1 to rod 3
     """
     assert 1 <= start <= 3 and 1 <= end <= 3 and start != end, "Bad start/end"
-    "*** YOUR CODE HERE ***"
+    
+    aux = 6 - start - end
+    if n == 1:
+        print_move(start, end)
+    else:
+        move_stack(n-1, start, aux)
+        move_stack(1, start, end)
+        move_stack(n-1, aux, end)
 
 ###########
 # Mobiles #
@@ -166,15 +176,18 @@ def end(s):
 def weight(size):
     """Construct a weight of some size."""
     assert size > 0
-    "*** YOUR CODE HERE ***"
+    
+    return tree(size)
 
 def size(w):
     """Select the size of a weight."""
-    "*** YOUR CODE HERE ***"
+    
+    return label(w)
 
 def is_weight(w):
     """Whether w is a weight, not a mobile."""
-    "*** YOUR CODE HERE ***"
+    
+    return type(label(w)) == int and label(w)>0 and branches(w) == []
 
 def examples():
     t = mobile(side(1, weight(2)),
@@ -219,7 +232,16 @@ def balanced(m):
     >>> balanced(mobile(side(1, w), side(1, v)))
     False
     """
-    "*** YOUR CODE HERE ***"
+    
+    if is_weight(m):
+        return size(m)
+    left_torque, right_torque = [total_weight(end(x))*length(x) for x in sides(m)]
+    if left_torque != right_torque:
+        return False
+    for side in sides(m):
+        if not balanced(end(side)):
+            return False
+    return True
 
 #######
 # OOP #
@@ -267,7 +289,12 @@ class Account:
     def time_to_retire(self, amount):
         """Return the number of years until balance would grow to amount."""
         assert self.balance > 0 and amount > 0 and self.interest > 0
-        "*** YOUR CODE HERE ***"
+        
+        total = self.balance
+        t = 0
+        while total < amount:
+            total, t = total * (1 + self.interest), t + 1
+        return t
 
 class FreeChecking(Account):
     """A bank account that charges for withdrawals, but the first two are free!
@@ -296,7 +323,13 @@ class FreeChecking(Account):
     withdraw_fee = 1
     free_withdrawals = 2
 
-    "*** YOUR CODE HERE ***"
+    
+    def withdraw(self, amount):
+        if self.free_withdrawals > 0:
+            self.free_withdrawals -= 1
+            return Account.withdraw(self, amount)
+        else:
+            return Account.withdraw(self, amount + self.withdraw_fee)
 
 ############
 # Mutation #
@@ -322,7 +355,13 @@ def make_counter():
     >>> c('b') + c2('b')
     5
     """
-    "*** YOUR CODE HERE ***"
+    
+    d = {}
+    def helper(c):
+        nonlocal d
+        d[c] = d.get(c, 0) + 1
+        return d[c]
+    return helper
 
 def make_fib():
     """Returns a function that returns the next Fibonacci number
@@ -343,7 +382,18 @@ def make_fib():
     >>> fib() + sum([fib2() for _ in range(5)])
     12
     """
-    "*** YOUR CODE HERE ***"
+    
+    prev, cur = 0, 1
+    index = 0
+    def fib():
+        nonlocal prev, cur, index
+        if index < 2:
+            index += 1
+            return index-1
+        prev, cur, index = cur, prev+cur, index+1
+        return cur
+    return fib
+
 
 def make_withdraw(balance, password):
     """Return a password-protected withdraw function.
@@ -358,7 +408,7 @@ def make_withdraw(balance, password):
     >>> error
     'Incorrect password'
     >>> new_bal = w(25, 'hax0r')
-    >>> new
+    >>> new_bal
     50
     >>> w(75, 'a')
     'Incorrect password'
@@ -373,7 +423,24 @@ def make_withdraw(balance, password):
     >>> type(w(10, 'l33t')) == str
     True
     """
-    "*** YOUR CODE HERE ***"
+    
+    wrong_password_log, count = [], 0
+    
+    def withdraw(amount, this_password):
+        nonlocal wrong_password_log, count, balance
+        if count > 2:
+            return "Your account is locked. Attempts: {0}".format(wrong_password_log)
+        if this_password != password:
+            wrong_password_log.append(this_password)
+            count += 1
+            return 'Incorrect password'
+        else:
+            if amount > balance:
+                return 'Insufficient funds'
+            balance = balance - amount
+            return balance
+
+    return withdraw
 
 def make_joint(withdraw, old_password, new_password):
     """Return a password-protected withdraw function that has joint access to
@@ -413,7 +480,17 @@ def make_joint(withdraw, old_password, new_password):
     >>> make_joint(w, 'hax0r', 'hello')
     "Your account is locked. Attempts: ['my', 'secret', 'password']"
     """
-    "*** YOUR CODE HERE ***"
+    
+    response = withdraw(0, old_password)
+    if type(response) == str:
+        return response
+    def jointed(amount, this_password):
+        if this_password in [old_password, new_password]:
+            return withdraw(amount, old_password)
+        else:
+            return withdraw(amount, this_password)
+    return jointed
+
 
 ###################
 # Extra Questions #
@@ -425,11 +502,13 @@ def interval(a, b):
 
 def lower_bound(x):
     """Return the lower bound of interval x."""
-    "*** YOUR CODE HERE ***"
+    
+    return x[0]
 
 def upper_bound(x):
     """Return the upper bound of interval x."""
-    "*** YOUR CODE HERE ***"
+    
+    return x[1]
 
 def str_interval(x):
     """Return a string representation of interval x."""
@@ -445,22 +524,26 @@ def add_interval(x, y):
 def mul_interval(x, y):
     """Return the interval that contains the product of any value in x and any
     value in y."""
-    p1 = x[0] * y[0]
-    p2 = x[0] * y[1]
-    p3 = x[1] * y[0]
-    p4 = x[1] * y[1]
-    return [min(p1, p2, p3, p4), max(p1, p2, p3, p4)]
+    p1 = lower_bound(x) * lower_bound(y)
+    p2 = lower_bound(x) * upper_bound(y)
+    p3 = upper_bound(x) * lower_bound(y)
+    p4 = upper_bound(x) * upper_bound(y)
+    return interval(min(p1, p2, p3, p4), max(p1, p2, p3, p4))
 
 def sub_interval(x, y):
     """Return the interval that contains the difference between any value in x
     and any value in y."""
-    "*** YOUR CODE HERE ***"
+    
+    u = upper_bound(x) - lower_bound(y)
+    l = lower_bound(x) - upper_bound(y)
+    return interval(l, u)
 
 def div_interval(x, y):
     """Return the interval that contains the quotient of any value in x divided by
     any value in y. Division is implemented as the multiplication of x by the
     reciprocal of y."""
-    "*** YOUR CODE HERE ***"
+    
+    assert lower_bound(y)>0 or upper_bound(y)<0
     reciprocal_y = interval(1/upper_bound(y), 1/lower_bound(y))
     return mul_interval(x, reciprocal_y)
 
@@ -482,8 +565,8 @@ def check_par():
     >>> lower_bound(x) != lower_bound(y) or upper_bound(x) != upper_bound(y)
     True
     """
-    r1 = interval(1, 1) # Replace this line!
-    r2 = interval(1, 1) # Replace this line!
+    r1 = interval(1/2, 1) # Replace this line!
+    r2 = interval(1, 2) # Replace this line!
     return r1, r2
 
 def multiple_references_explanation():
@@ -498,7 +581,13 @@ def quadratic(x, a, b, c):
     >>> str_interval(quadratic(interval(1, 3), 2, -3, 1))
     '0 to 10'
     """
-    "*** YOUR CODE HERE ***"
+    
+    """A naive method is to consider the geometric properties of the 
+    quadratic function. If the extremum is located inside the interval then ...
+    and in next question you can calculate the extremum of f(x) as the 
+    zeroes of diff(f) using Newton's Method.
+       Are there more direct pathes? ... like algebraic ways to bound the intervals?
+    """
 
 def polynomial(x, c):
     """Return the interval that is the range of the polynomial defined by
@@ -511,5 +600,5 @@ def polynomial(x, c):
     >>> str_interval(polynomial(interval(0.5, 2.25), [10, 24, -6, -8, 3]))
     '18.0 to 23.0'
     """
-    "*** YOUR CODE HERE ***"
+    
 

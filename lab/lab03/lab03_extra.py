@@ -30,7 +30,7 @@ def cycle(f1, f2, f3):
     >>> do_two_cycles(1)
     19
     """
-    "*** YOUR CODE HERE ***"
+    
     def helper(n):
         def inner(x):
             nonlocal n
@@ -93,7 +93,7 @@ def is_prime(n):
     >>> is_prime(521)
     True
     """
-    "*** YOUR CODE HERE ***"
+    
 
     def helper(n, k):
         if k > n ** 1/2:
@@ -112,7 +112,7 @@ def interleaved_sum(n, odd_term, even_term):
     ... interleaved_sum(5, lambda x: x, lambda x: x*x)
     29
     """
-    "*** YOUR CODE HERE ***"
+    
     def helper_odd(k, odd_term):
         if k == n:
             return odd_term(n)
@@ -134,7 +134,7 @@ def ten_pairs(n):
     >>> ten_pairs(9641469)
     6
     """
-    "*** YOUR CODE HERE ***"
+    
     def helper(n, k):
         count = 0
         while n > 0:

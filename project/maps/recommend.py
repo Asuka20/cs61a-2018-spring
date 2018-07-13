@@ -19,7 +19,7 @@ def find_closest(location, centroids):
     [2.0, 3.0]
     """
     # BEGIN Question 3
-    "*** YOUR CODE HERE ***"
+    
     # END Question 3
     return min(centroids, key=lambda x: distance(location, x))
 
@@ -48,7 +48,7 @@ def group_by_centroid(restaurants, centroids):
     restaurants closest to the same centroid.
     """
     # BEGIN Question 4
-    "*** YOUR CODE HERE ***"
+    
     lst = []
     for i in restaurants:
         i_location = restaurant_location(i)
@@ -61,7 +61,7 @@ def group_by_centroid(restaurants, centroids):
 def find_centroid(cluster):
     """Return the centroid of the locations of the restaurants in cluster."""
     # BEGIN Question 5
-    "*** YOUR CODE HERE ***"
+    
     locations = [restaurant_location(i) for i in cluster]
     latitudes, longtitudes = [i[0] for i in locations], [i[1] for i in locations]
     return [mean(latitudes), mean(longtitudes)]
@@ -79,7 +79,7 @@ def k_means(restaurants, k, max_updates=100):
     while old_centroids != centroids and n < max_updates:
         old_centroids = centroids
         # BEGIN Question 6
-        "*** YOUR CODE HERE ***"
+        
         clusters = group_by_centroid(restaurants, old_centroids)
         centroids = [find_centroid(i) for i in clusters]
         # END Question 6
@@ -135,7 +135,7 @@ def best_predictor(user, restaurants, feature_fns):
     """
     reviewed = user_reviewed_restaurants(user, restaurants)
     # BEGIN Question 8
-    "*** YOUR CODE HERE ***"
+    
     return max([find_predictor(user, reviewed, fn) for fn in feature_fns], key=lambda x: x[1])[0]
     # END Question 8
 
@@ -152,7 +152,7 @@ def rate_all(user, restaurants, feature_fns):
     predictor = best_predictor(user, ALL_RESTAURANTS, feature_fns)
     reviewed = user_reviewed_restaurants(user, restaurants)
     # BEGIN Question 9
-    "*** YOUR CODE HERE ***"
+    
     d = {}
     for i in restaurants:
         if i in reviewed:
@@ -171,7 +171,7 @@ def search(query, restaurants):
     restaurants -- A sequence of restaurants
     """
     # BEGIN Question 10
-    "*** YOUR CODE HERE ***"
+    
     return [rest for rest in restaurants if query in restaurant_categories(rest)]
     # END Question 10
 

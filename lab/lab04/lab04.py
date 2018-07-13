@@ -14,7 +14,7 @@ def if_this_not_that(i_list, this):
     4
     5
     """
-    "*** YOUR CODE HERE ***"
+    
     for i in i_list:
         print(i if i > this else 'that')
     return None
@@ -69,7 +69,7 @@ def distance(city1, city2):
     >>> distance(city3, city4)
     5.0
     """
-    "*** YOUR CODE HERE ***"
+    
     return sqrt((get_lat(city1) - get_lat(city2))**2 + (get_lon(city1) - get_lon(city2))**2)
 
 # Q5
@@ -87,7 +87,7 @@ def closer_city(lat, lon, city1, city2):
     >>> closer_city(41.29, 174.78, bucharest, vienna)
     'Bucharest'
     """
-    "*** YOUR CODE HERE ***"
+    
     temp_city = make_city('city0', lat, lon)
     return get_name(city1) if distance(temp_city, city1) < distance(temp_city, city2) else get_name(city2)
 

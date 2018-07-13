@@ -6,7 +6,7 @@ def map(fn, seq):
     >>> map(lambda x: x*x, [1, 2, 3])
     [1, 4, 9]
     """
-    "*** YOUR CODE HERE ***"
+    
     return [fn(x) for x in seq]
 
 def filter(pred, seq):
@@ -15,7 +15,6 @@ def filter(pred, seq):
     >>> filter(lambda x: x % 2 == 0, [1, 2, 3, 4])
     [2, 4]
     """
-    "*** YOUR CODE HERE ***"
     return [x for x in seq if pred(x)]
 
 def reduce(combiner, seq):
@@ -28,7 +27,7 @@ def reduce(combiner, seq):
     >>> reduce(lambda x, y: x * y, [4])
     4
     """
-    "*** YOUR CODE HERE ***"
+    
     res = seq[0]
     for i in seq[1:]:
         res = combiner(i, res)
@@ -49,7 +48,7 @@ def acorn_finder(t):
     >>> acorn_finder(numbers)
     False
     """
-    "*** YOUR CODE HERE ***"
+    
     stack = [t]
     while stack:
         tmp = stack.pop()
@@ -88,7 +87,7 @@ def replace_leaf(t, old, new):
     >>> laerad == yggdrasil # Make sure original tree is unmodified
     True
     """
-    "*** YOUR CODE HERE ***"
+    
     new_root = new if label(t) == old and is_leaf(t) else label(t)  
     new_branches = [replace_leaf(node, old, new) for node in branches(t)]
     

@@ -13,7 +13,7 @@ def gcd(a, b):
     >>> gcd(40, 40)
     40
     """
-    "*** YOUR CODE HERE ***"
+    
     if a % b == 0:
         return b
     return gcd(b, a % b)
@@ -33,7 +33,7 @@ def hailstone(n, count = 1):
     >>> a
     7
     """
-    "*** YOUR CODE HERE ***"
+    
     print(n)
     if n == 1:
         return count

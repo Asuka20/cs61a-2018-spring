@@ -7,11 +7,10 @@ test = {
         {
           'code': r"""
           >>> str_interval(mul_interval(interval(-1, 2), interval(4, 8)))
-          aab84eecf7119ded26fae31d8ad610d5
-          # locked
+          '-8 to 16'
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         }
       ],
       'scored': True,

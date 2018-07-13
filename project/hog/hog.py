@@ -21,7 +21,7 @@ def roll_dice(num_rolls, dice=six_sided):
     assert type(num_rolls) == int, 'num_rolls must be an integer.'
     assert num_rolls > 0, 'Must roll at least once.'
     # BEGIN PROBLEM 1
-    "*** YOUR CODE HERE ***"
+    
     is_pig_out = False
     count = 0
     res = 0
@@ -45,7 +45,7 @@ def free_bacon(score):
     """
     assert score < 100, 'The game should be over.'
     # BEGIN PROBLEM 2
-    "*** YOUR CODE HERE ***"
+    
     return abs(score//10 - score%10) + 2
     # END PROBLEM 2
 
@@ -74,7 +74,7 @@ def take_turn(num_rolls, opponent_score, dice=six_sided):
 def is_swap(score0, score1):
     """Return whether one of the scores is an integer multiple of the other."""
     # BEGIN PROBLEM 4
-    "*** YOUR CODE HERE ***"
+    
     if not score0 > 1 or not score1 > 1:
         return False
     elif score0 > score1 and score0 % score1 == 0:
@@ -121,7 +121,7 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     """
     player = 0  # Which player is about to take a turn, 0 (first) or 1 (second)
     # BEGIN PROBLEM 5
-    "*** YOUR CODE HERE ***"
+    
     while max(score0, score1) < goal:
         if player == 0:
             current_score, opponent_score, current_strategy = score0, score1, strategy0
@@ -214,7 +214,7 @@ def announce_highest(who, previous_high=0, previous_score=0):
     """
     assert who == 0 or who == 1, 'The who argument should indicate a player.'
     # BEGIN PROBLEM 7
-    "*** YOUR CODE HERE ***"
+    
     def say(score0, score1):
         if who == 0:
             current_score = score0
@@ -270,7 +270,7 @@ def make_averaged(fn, num_samples=1000):
     3.0
     """
     # BEGIN PROBLEM 8
-    "*** YOUR CODE HERE ***"
+    
     def result(*arg):
         count = 0
         average = 0
@@ -289,7 +289,7 @@ def max_scoring_num_rolls(dice=six_sided, num_samples=1000):
     1
     """
     # BEGIN PROBLEM 9
-    "*** YOUR CODE HERE ***"
+    
     max_scoring_num = 0
     current_max_score = 0
     averaged_dice = make_averaged(roll_dice, num_samples)

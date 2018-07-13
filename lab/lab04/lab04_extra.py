@@ -15,7 +15,7 @@ def flatten(lst):
     >>> flatten(x)
     [1, 1, 1, 1, 1, 1]
     """
-    "*** YOUR CODE HERE ***"
+    
     result = []
     for item in lst:
         if type(item) == list:
@@ -38,7 +38,7 @@ def merge(lst1, lst2):
     >>> merge([5, 7], [2, 4, 6])
     [2, 4, 5, 6, 7]
     """
-    "*** YOUR CODE HERE ***"
+    
     res = []
     i ,j = 0, 0
     while i < len(lst1) and j < len(lst2):
@@ -72,7 +72,7 @@ def create_row(size):
     >>> create_row(5)
     ['-', '-', '-', '-', '-']
     """
-    "*** YOUR CODE HERE ***"
+    
     return ['-' for i in range(size)]
 
 def create_board(rows, columns):
@@ -81,7 +81,7 @@ def create_board(rows, columns):
     >>> create_board(3, 5)
     [['-', '-', '-', '-', '-'], ['-', '-', '-', '-', '-'], ['-', '-', '-', '-', '-']]
     """
-    "*** YOUR CODE HERE ***"
+    
     return [create_row(columns) for i in range(rows)]
 
 
@@ -97,7 +97,7 @@ def replace_elem(lst, index, elem):
     False
     """
     assert index >= 0 and index < len(lst), 'Index is out of bounds'
-    "*** YOUR CODE HERE ***"
+    
     lst = lst[:]
     lst.pop(index)
     lst.insert(index, elem)
@@ -116,7 +116,7 @@ def get_piece(board, row, column):
     >>> get_piece(board, 1, 1)
     '-'
     """
-    "*** YOUR CODE HERE ***"
+    
     return board[row][column]
 
 def put_piece(board, max_rows, column, player):
@@ -139,7 +139,7 @@ def put_piece(board, max_rows, column, player):
     >>> row
     -1
     """
-    "*** YOUR CODE HERE ***"
+    
     row = 0
     while row < max_rows and get_piece(board, row, column) == '-':
         row += 1
@@ -173,7 +173,7 @@ def make_move(board, max_rows, max_cols, col, player):
     >>> row
     -1
     """
-    "*** YOUR CODE HERE ***"
+    
     if 0<=col<max_cols and get_piece(board, 0, col) == '-':
         row, board = put_piece(board, max_rows, col, player)
     else:
@@ -193,7 +193,7 @@ def print_board(board, max_rows, max_cols):
     - -
     X -
     """
-    "*** YOUR CODE HERE ***"
+    
     i = 0
     while i < max_rows:
         tmp_row, j = '', 0
@@ -226,7 +226,7 @@ def check_win_row(board, max_rows, max_cols, num_connect, row, player):
     >>> check_win_row(board, rows, columns, num_connect, 3, 'O')   # We only detect wins for the given player
     False
     """
-    "*** YOUR CODE HERE ***"
+    
     combo = 0
     j = 0
     while j < max_cols:
@@ -262,7 +262,7 @@ def check_win_column(board, max_rows, max_cols, num_connect, col, player):
     >>> check_win_column(board, rows, columns, num_connect, 1, 'X')
     False
     """
-    "*** YOUR CODE HERE ***"
+    
     combo = 0
     i = 0
     while i < max_rows:
@@ -309,7 +309,7 @@ def check_win(board, max_rows, max_cols, num_connect, row, col, player):
     """
     diagonal_win = check_win_diagonal(board, max_rows, max_cols, num_connect,
                                       row, col, player)
-    "*** YOUR CODE HERE ***"
+    
     row_win = check_win_row(board, max_rows, max_cols, num_connect, row, player)
     column_win = check_win_column(board, max_rows, max_cols, num_connect, col, player)
     if diagonal_win or row_win or column_win:

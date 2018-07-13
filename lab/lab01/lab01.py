@@ -26,7 +26,7 @@ def repeated(f, n, x):
     >>> repeated(opposite, 3, 0)
     True
     """
-    "*** YOUR CODE HERE ***"
+    
     count = 0
     res = x
     while count < n:
@@ -44,7 +44,7 @@ def sum_digits(n):
     >>> sum_digits(1234567890)
     45
     """
-    "*** YOUR CODE HERE ***"
+    
     res = 0
     while n > 0:
         res += n % 10
@@ -66,7 +66,7 @@ def double_eights(n):
     >>> double_eights(80808080)
     False
     """
-    "*** YOUR CODE HERE ***"
+    
     prev = False
     while n > 0:
         if n % 10 == 8:

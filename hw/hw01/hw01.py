@@ -83,16 +83,16 @@ def with_if_function():
     return if_function(c(), t(), f())
 
 def c():
-    "*** YOUR CODE HERE ***"
+    
     
     return True
 
 def t():
-    "*** YOUR CODE HERE ***"
+    
     return 1
 
 def f():
-    "*** YOUR CODE HERE ***"
+    
     print('wfsad')
     return None
 
@@ -111,7 +111,7 @@ def hailstone(n):
     >>> a
     7
     """
-    "*** YOUR CODE HERE ***"
+    
     count = 0
     while n > 1:
         print(n)

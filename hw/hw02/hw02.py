@@ -32,7 +32,7 @@ def product(n, term):
     >>> product(3, triple)    # 1*3 * 2*3 * 3*3
     162
     """
-    "*** YOUR CODE HERE ***"
+    
     total, k = 1, 1
     while k <= n:
         total, k = total * term(k), k + 1
@@ -52,7 +52,7 @@ def factorial(n):
     >>> check(HW_SOURCE_FILE, 'factorial', ['Recursion', 'For', 'While'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    
     return product(n, identity)
 
 def make_adder(n):
@@ -64,5 +64,5 @@ def make_adder(n):
     >>> make_adder(1)(2)
     3
     """
-    "*** YOUR CODE HERE ***"
+    
     return lambda x: x + n

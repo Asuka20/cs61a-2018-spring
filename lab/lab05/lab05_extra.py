@@ -21,7 +21,7 @@ def build_successors_table(tokens):
     prev = '.'
     for word in tokens:
         if prev not in table:
-            "*** YOUR CODE HERE ***"
+            
             table[prev] = [word]
         else:
             table[prev].append(word)
@@ -41,7 +41,7 @@ def construct_sent(word, table):
     import random
     result = ''
     while word not in ['.', '!', '?']:
-        "*** YOUR CODE HERE ***"
+        
         result += ' ' + word
         word = random.choice(table[word])
     return result.strip() + word
@@ -89,7 +89,7 @@ def prune_leaves(t, vals):
         5
       6
     """
-    "*** YOUR CODE HERE ***"
+    
     if is_leaf(t) and label(t) in vals:
         return None
     new_root = label(t)
@@ -129,7 +129,7 @@ def sprout_leaves(t, vals):
           1
           2
     """
-    "*** YOUR CODE HERE ***"
+    
     if is_leaf(t):
         return tree(label(t), [tree(x) for x in vals])
     new_root = label(t)
@@ -172,7 +172,7 @@ def add_trees(t1, t2):
         5
       5
     """
-    "*** YOUR CODE HERE ***"
+    
     new_root = label(t1) + label(t2)
 
     diff = len(branches(t1)) - len(branches(t2))

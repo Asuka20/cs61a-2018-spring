@@ -26,7 +26,7 @@ def taxicab(a, b):
     >>> taxicab(ess_a_bagel, times_square)
     9
     """
-    "*** YOUR CODE HERE ***"
+    
     distance = abs(street(a) - street(b)) + abs(avenue(a) - avenue(b))
     return distance
 
@@ -41,7 +41,7 @@ def squares(s):
     >>> squares(seq)
     []
     """
-    "*** YOUR CODE HERE ***"
+    
     result = []
     for i in s:
         if i ** 0.5 == round(i ** 0.5):
@@ -65,7 +65,7 @@ def g(n):
     >>> check(HW_SOURCE_FILE, 'g', ['While', 'For'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    
     if n <= 3:
         return n
     else:
@@ -88,7 +88,7 @@ def g_iter(n):
     >>> check(HW_SOURCE_FILE, 'g_iter', ['Recursion'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    
     if n <= 3:
         return n
     else:
@@ -131,7 +131,7 @@ def pingpong(n):
     >>> check(HW_SOURCE_FILE, 'pingpong', ['Assign', 'AugAssign'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    
     def helper(i, num, trend):
         if i == n:
             return num
@@ -181,7 +181,7 @@ def count_change(amount):
     >>> count_change(100)
     9828
     """
-    "*** YOUR CODE HERE ***"
+    
     def max_cent(n):
         i = 1
         while i <= n:

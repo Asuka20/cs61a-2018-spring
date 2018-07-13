@@ -35,7 +35,7 @@ def composite_identity(f, g):
     >>> b1(4)                            # (4 + 1)^2 != 4^2 + 1
     False
     """
-    "*** YOUR CODE HERE ***"
+    
     return lambda x: compose1(f, g)(x) == compose1(g, f)(x)
 
 def count_cond(condition):
@@ -63,7 +63,7 @@ def count_cond(condition):
     >>> count_primes(20)   # 2, 3, 5, 7, 11, 13, 17, 19
     8
     """
-    "*** YOUR CODE HERE ***"
+    
     def count_fun(n):
         i, count = 1, 0
         while i <= n:
@@ -100,7 +100,7 @@ def cycle(f1, f2, f3):
     >>> do_two_cycles(1)
     19
     """
-    "*** YOUR CODE HERE ***"
+    
     def helper(n):
         def inner(x):
             nonlocal n

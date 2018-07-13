@@ -24,7 +24,7 @@ def has_seven(k):
     ...       ['Assign', 'AugAssign'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    
     if k % 10 == 7:
         return True
     elif k == 0:
@@ -49,7 +49,7 @@ def summation(n, term):
     True
     """
     assert n >= 1
-    "*** YOUR CODE HERE ***"
+    
     if n == 1:
         return term(1)
     return summation(n - 1, term) + term(n)
@@ -84,7 +84,7 @@ def accumulate(combiner, base, n, term):
     >>> accumulate(mul, 2, 3, square)   # 2 * 1^2 * 2^2 * 3^2
     72
     """
-    "*** YOUR CODE HERE ***"
+    
     if n == 0:
         return base
     return combiner(accumulate(combiner, base, n-1, term), term(n))
@@ -102,7 +102,7 @@ def summation_using_accumulate(n, term):
     ...       ['Recursion', 'For', 'While'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    
     return accumulate(add, 0, n, term)
 
 def product_using_accumulate(n, term):
@@ -117,7 +117,7 @@ def product_using_accumulate(n, term):
     ...       ['Recursion', 'For', 'While'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    
     return accumulate(mul, 1, n, term)
 
 def filtered_accumulate(combiner, base, pred, n, term):
@@ -144,7 +144,7 @@ def filtered_accumulate(combiner, base, pred, n, term):
     True
     """
     def combine_if(x, y):
-        "*** YOUR CODE HERE ***"
+        
         return combiner(x, y) if pred(y) else x
     return accumulate(combine_if, base, n, term)
 
@@ -169,7 +169,7 @@ def make_repeater(f, n):
     >>> make_repeater(square, 0)(5)
     5
     """
-    "*** YOUR CODE HERE ***"
+    
     if n == 0:
         return lambda x: x
     return compose1(f, make_repeater(f, n-1))
@@ -185,7 +185,7 @@ def compose1(f, g):
 ###################
 
 quine = """
-"*** YOUR CODE HERE ***"
+
 """
 
 def zero(f):
@@ -196,12 +196,12 @@ def successor(n):
 
 def one(f):
     """Church numeral 1: same as successor(zero)"""
-    "*** YOUR CODE HERE ***"
+    
     return lambda x: f(x)
 
 def two(f):
     """Church numeral 2: same as successor(successor(zero))"""
-    "*** YOUR CODE HERE ***"
+    
     return lambda x: f(f(x))
 
 three = successor(two)
@@ -218,7 +218,7 @@ def church_to_int(n):
     >>> church_to_int(three)
     3
     """
-    "*** YOUR CODE HERE ***"
+    
     return n(lambda x: x + 1)(0)
 
 
@@ -228,7 +228,7 @@ def add_church(m, n):
     >>> church_to_int(add_church(two, three))
     5
     """
-    "*** YOUR CODE HERE ***"
+    
     return lambda f: lambda x: m(f)(n(f)(x))
 
 def mul_church(m, n):
@@ -240,7 +240,7 @@ def mul_church(m, n):
     >>> church_to_int(mul_church(three, four))
     12
     """
-    "*** YOUR CODE HERE ***"
+    
     return lambda f: lambda x: m(n(f))(x) # lambda f: m(n(f))
 
 def pow_church(m, n):
@@ -251,5 +251,5 @@ def pow_church(m, n):
     >>> church_to_int(pow_church(three, two))
     9
     """
-    "*** YOUR CODE HERE ***"
+    
     return lambda f: lambda x: (n(m))(f)(x) # lambda f: n(m)

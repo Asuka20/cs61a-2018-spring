@@ -72,7 +72,7 @@ def falling(n, k):
     >>> falling(4, 1)  # 4
     4
     """
-    "*** YOUR CODE HERE ***"
+    
     count = 0
     res = 1
     while count < k:
@@ -103,7 +103,7 @@ def guess_linear():
     prompt_for_number(LOWER, UPPER)
     num_guesses = 1
     guess = LOWER
-    "*** YOUR CODE HERE ***"
+    
     while not is_correct(guess):
         guess += 1
         num_guesses += 1
@@ -121,7 +121,7 @@ def guess_binary():
     num_guesses = 1
     lower, upper = LOWER, UPPER
     guess = (lower + upper) // 2
-    "*** YOUR CODE HERE ***"
+    
     while not is_correct(guess):
         if is_too_high(guess):
             upper = guess
