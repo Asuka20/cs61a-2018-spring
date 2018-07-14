@@ -17,7 +17,12 @@ def remove_all(link , value):
     >>> print(l1)
     <0 1>
     """
-    "*** YOUR CODE HERE ***"
+    while link.rest:
+        while link.second == value:
+            link.rest = link.rest.rest
+            if link.rest == Link.empty:
+                return
+        link = link.rest
 
 # Q7
 def deep_map_mut(fn, link):
@@ -32,7 +37,13 @@ def deep_map_mut(fn, link):
     >>> print(link1)
     <9 <16> 25 36>
     """
-    "*** YOUR CODE HERE ***"
+    while link:
+        if isinstance(link.first, Link):
+            deep_map_mut(fn, link.first)
+        else:
+            link.first = fn(link.first)
+        link = link.rest
+
 
 # Q8
 def has_cycle(link):
@@ -49,7 +60,13 @@ def has_cycle(link):
     >>> has_cycle(u)
     False
     """
-    "*** YOUR CODE HERE ***"
+    log = set()
+    while link:
+        if link in log:
+            return True
+        log.add(link)
+        link = link.rest
+    return False
 
 def has_cycle_constant(link):
     """Return whether link contains a cycle.
@@ -62,10 +79,16 @@ def has_cycle_constant(link):
     >>> has_cycle_constant(t)
     False
     """
-    "*** YOUR CODE HERE ***"
+    lazy = link
+    haste = link.rest
+    while haste:
+        if haste == lazy:
+            return True
+        haste, lazy = haste.rest.rest, lazy.rest
+    return False
 
 # Q9
-def reverse_other(t):
+def reverse_other(t, depth=0):
     """Mutates the tree such that nodes on every other (even_indexed) level
     have the labels of their branches all reversed.
 
@@ -78,4 +101,11 @@ def reverse_other(t):
     >>> t
     Tree(1, [Tree(8, [Tree(3, [Tree(5), Tree(4)]), Tree(6, [Tree(7)])]), Tree(2)])
     """
-    "*** YOUR CODE HERE ***"
+    if depth % 2 == 1:
+        for b in t.branches:
+            reverse_other(b, depth+1)
+    else:
+        labels = [b.label for b in t.branches]
+        for index, b in enumerate(t.branches):
+            b.label = labels[-index-1]
+            reverse_other(b, depth+1)

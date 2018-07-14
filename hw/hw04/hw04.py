@@ -217,3 +217,4 @@ def make_anonymous_factorial():
     # alternation: 
     #      (lambda f: (lambda n: f(f, n)))(lambda s, x: x*s(s, x-1) if x > 0 else 1)
     return lambda n: (lambda f, n: f(f, n))(lambda s, x: x*s(s, x-1) if x > 0 else 1, n)
+

@@ -83,7 +83,6 @@ class VendingMachine:
     >>> w.vend()
     'Here is your soda.'
     """
-    "*** YOUR CODE HERE ***"
     def __init__(self, product, price, stock=0, init_balance=0):
         self.product = product
         self.price = price
