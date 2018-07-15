@@ -5,7 +5,7 @@ test = {
     {
       'cases': [
         {
-          'answer': '00adc8b182314743ab954fb68174526a',
+          'answer': 'log(n)',
           'choices': [
             '1',
             'n',
@@ -16,7 +16,7 @@ test = {
             'exponential'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'question': 'What is the order of growth in runtime for zap?'
         }
       ],

@@ -15,7 +15,13 @@ def deep_len(lnk):
     >>> deep_len(levels)
     5
     """
-    "*** YOUR CODE HERE ***"
+    if lnk == Link.empty:
+        return 0
+
+    if isinstance(lnk.first , Link):
+        return deep_len(lnk.first) + deep_len(lnk.rest)
+    else:
+        return 1 + deep_len(lnk.rest)
 
 # Link class
 class Link:

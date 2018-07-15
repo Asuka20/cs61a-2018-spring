@@ -5,7 +5,7 @@ test = {
     {
       'cases': [
         {
-          'answer': '6df5154157f2b5691f58df9227647660',
+          'answer': 'n^4',
           'choices': [
             '1',
             'n',
@@ -16,7 +16,7 @@ test = {
             'exponential'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'question': 'What is the order of growth in runtime for boom?'
         }
       ],

@@ -15,46 +15,34 @@ test = {
           >>> a = Foo(5)
           >>> b = Bar(2)
           >>> a.a
-          3595d1fdbdda5f2ecaa323401627e273
-          # locked
+          5
           >>> b.a
-          9338923f09aac77121029c604f7ce4f3
-          # locked
+          2
           >>> Foo.a
-          8be8039fce6ea3657f1a0a9143efa89d
-          # locked
+          10
           >>> Bar.b
-          802285b020b27240a3824a7e42f8cc8c
-          # locked
+          1
           >>> Bar.a
-          8be8039fce6ea3657f1a0a9143efa89d
-          # locked
+          10
           >>> b.b
-          802285b020b27240a3824a7e42f8cc8c
-          # locked
+          1
           >>> Foo.c = 15
           >>> Foo.c
-          fb7891bbea16434eb7fc817790a6b564
-          # locked
+          15
           >>> a.c
-          fb7891bbea16434eb7fc817790a6b564
-          # locked
+          15
           >>> b.c
-          fb7891bbea16434eb7fc817790a6b564
-          # locked
+          15
           >>> Bar.c
-          fb7891bbea16434eb7fc817790a6b564
-          # locked
+          15
           >>> b.b = 3
           >>> b.b
-          a6a221ff20ce085ab4bedaca5044f971
-          # locked
+          3
           >>> Bar.b
-          802285b020b27240a3824a7e42f8cc8c
-          # locked
+          1
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         }
       ],
       'scored': False,

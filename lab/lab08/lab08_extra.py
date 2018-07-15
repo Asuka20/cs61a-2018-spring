@@ -25,17 +25,21 @@ class Keyboard:
     """
 
     def __init__(self, *args):
-        "*** YOUR CODE HERE ***"
+        self.buttons = {button.pos: button for button in args}
 
     def press(self, info):
         """Takes in a position of the button pressed, and
         returns that button's output"""
-        "*** YOUR CODE HERE ***"
+        self.buttons[info].pressed += 1
+        return self.buttons[info].key
 
     def typing(self, typing_input):
         """Takes in a list of positions of buttons pressed, and
         returns the total output"""
-        "*** YOUR CODE HERE ***"
+        res = ''
+        for i in typing_input:
+            res += self.press(i)
+        return res
 
 class Button:
     def __init__(self, pos, key):
@@ -73,8 +77,24 @@ def make_advanced_counter_maker():
     >>> tom_counter('global-count')
     1
     """
-    "*** YOUR CODE HERE ***"
-
+    def make_counter():
+        def counter(message):
+            if message == 'count':
+                counter.count += 1
+                return counter.count
+            elif message == 'global-count':
+                make_counter.global_count += 1
+                return make_counter.global_count
+            elif message == 'reset':
+                counter.count = 0
+                return
+            elif message == 'global-reset':
+                make_counter.global_count = 0
+                return
+        counter.count = 0
+        return counter
+    make_counter.global_count = 0
+    return make_counter
 # Lists
 def trade(first, second):
     """Exchange the smallest prefixes of first and second that have equal sum.
@@ -104,10 +124,16 @@ def trade(first, second):
     [4, 3, 1, 4, 1]
     """
     m, n = 1, 1
-
-    "*** YOUR CODE HERE ***"
-
-    if False: # change this line!
+    deal = False
+    while m < len(first) and n < len(second):
+        if sum(first[:m]) < sum(second[:n]):
+            m += 1
+        elif sum(first[:m]) > sum(second[:n]):
+            n += 1
+        else:
+            deal = True
+            break
+    if deal: # change this line!
         first[:m], second[:n] = second[:n], first[:m]
         return 'Deal!'
     else:
@@ -129,7 +155,11 @@ def make_to_string(front, mid, back, empty_repr):
     >>> jerrys_to_string(Link.empty)
     '()'
     """
-    "*** YOUR CODE HERE ***"
+    def helper(link):
+        if not link:
+            return empty_repr
+        return front + str(link.first) + mid + helper(link.rest) + back
+    return helper
 
 def tree_map(fn, t):
     """Maps the function fn over the entries of t and returns the
@@ -153,7 +183,10 @@ def tree_map(fn, t):
           128
         256
     """
-    "*** YOUR CODE HERE ***"
+    t.label = fn(t.label)
+    for b in t.branches:
+        b = tree_map(fn, b)
+    return t
 
 def long_paths(tree, n):
     """Return a list of all paths in tree with length at least n.
@@ -184,7 +217,13 @@ def long_paths(tree, n):
     >>> long_paths(whole, 4)
     [Link(0, Link(11, Link(12, Link(13, Link(14)))))]
     """
-    "*** YOUR CODE HERE ***"
+    paths = []
+    if n <= 0 and tree.is_leaf():
+        paths.append(Link(tree.label))
+    for b in tree.branches:
+        for path in long_paths(b, n-1):
+            paths.append(Link(tree.label, path))
+    return paths
 
 # Orders of Growth
 def zap(n):
