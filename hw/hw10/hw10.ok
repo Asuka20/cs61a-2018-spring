@@ -1,0 +1,20 @@
+{
+    "name": "Homework 10",
+    "endpoint": "cal/cs61a/sp18/hw10",
+    "src": [
+        "hw10.scm"
+    ],
+    "tests": {
+        "tests/accumulate.py": "ok_test",
+        "tests/accumulate-tail.py": "ok_test",
+        "tests/list-comp.py": "ok_test"
+    },
+    "protocols": [
+        "restore",
+        "file_contents",
+        "unlock",
+        "grading",
+        "analytics",
+        "backup"
+    ]
+}

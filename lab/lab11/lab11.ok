@@ -1,0 +1,27 @@
+{
+    "name": "Lab 11",
+    "endpoint": "cal/cs61a/sp18/lab11",
+    "src": [
+        "lab11.py"
+    ],
+    "tests": {
+        "tests/iterators.py": "ok_test",
+        "tests/generators.py": "ok_test",
+        "lab11.py": "doctest",
+        "lab11_extra.py": "doctest"
+    },
+    "default_tests": [
+        "iterators",
+        "generators",
+        "scale",
+        "trap"
+    ],
+    "protocols": [
+        "restore",
+        "file_contents",
+        "unlock",
+        "grading",
+        "analytics",
+        "backup"
+    ]
+}

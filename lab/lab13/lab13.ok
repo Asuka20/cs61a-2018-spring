@@ -1,0 +1,33 @@
+{
+    "name": "Lab 13",
+    "endpoint": "cal/cs61a/sp18/lab13",
+    "src": [
+        "lab13.py",
+        "lab13.scm",
+        "lab13_extra.py",
+        "lab13_extra.scm"
+    ],
+    "tests": {
+        "lab13.py": "doctest",
+        "lab13_extra.py": "doctest",
+        "tests/compose-all.py": "ok_test",
+        "tests/deep-map.py": "ok_test",
+        "tests/tail-replicate.py": "ok_test",
+        "tests/insert.py": "ok_test",
+        "tests/tally.py": "ok_test",
+        "tests/rle.py": "ok_test"
+    },
+    "default_tests": [
+        "compose-all",
+        "tail-replicate",
+        "permutations"
+    ],
+    "protocols": [
+        "restore",
+        "file_contents",
+        "unlock",
+        "grading",
+        "analytics",
+        "backup"
+    ]
+}

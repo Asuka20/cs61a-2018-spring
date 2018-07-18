@@ -184,8 +184,7 @@ def compose1(f, g):
 # Extra Questions #
 ###################
 
-quine = """
-
+quine = """ _='_=%r; print(_%%_)'; print (_%_) 
 """
 
 def zero(f):
