@@ -5,7 +5,7 @@ test = {
     {
       'cases': [
         {
-          'answer': 'c9e4559526ed96dcae3a8a67e48f2539',
+          'answer': 'The Ant instance that is in the same place as itself',
           'choices': [
             'The Ant instance that is in the same place as itself',
             'The Ant instance in the place closest to its own place',
@@ -13,11 +13,11 @@ test = {
             'All the Ant instances in the colony'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'question': 'Which Ant does a BodyguardAnt guard?'
         },
         {
-          'answer': '2745a2fa52526511b38915b5ea09eb6c',
+          'answer': 'By hiding the ant from Bees and acting in its place',
           'choices': [
             'By hiding the ant from Bees and acting in its place',
             'By attacking Bees that try to attack it',
@@ -25,11 +25,11 @@ test = {
             'By allowing Bees to pass without attacking'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'question': 'How does a BodyguardAnt guard its ant?'
         },
         {
-          'answer': 'a98a52ec321f9f216007a6fb12af40e1',
+          'answer': "In the BodyguardAnt's ant instance attribute",
           'choices': [
             "In the BodyguardAnt's ant instance attribute",
             "In the BodyguardAnt's ant class attribute",
@@ -37,11 +37,11 @@ test = {
             "Nowhere, a BodyguardAnt has no knowledge of the ant that it's protecting"
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'question': 'Where is the ant contained by a BodyguardAnt stored?'
         },
         {
-          'answer': '90024fd86c2e899425acafa82b09af7b',
+          'answer': 'container is False for every Ant subclass except BodyguardAnt',
           'choices': [
             'container is False for every Ant subclass except BodyguardAnt',
             'container is True for every Ant subclass except BodyguardAnt',
@@ -49,11 +49,11 @@ test = {
             'container is False for all Ants'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'question': 'What is the value of the container attribute for each Ant subclass?'
         },
         {
-          'answer': '7a81f10493cb9dd2a778afa061e3edd5',
+          'answer': 'When exactly one of the Ant instances is a container and the container ant does not already contain another ant',
           'choices': [
             r"""
             When exactly one of the Ant instances is a container and the
@@ -64,11 +64,11 @@ test = {
             'There can never be two Ant instances in the same place'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'question': 'When are two Ant instances allowed to occupy the same Place?'
         },
         {
-          'answer': '15da5c3b3f44c437c3da5155a6d0c267',
+          'answer': 'The container Ant',
           'choices': [
             'The container Ant',
             'The Ant being contained',
@@ -76,7 +76,7 @@ test = {
             'Whichever Ant was placed there first'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'question': r"""
           If two Ants occupy the same Place, what is stored in that place's ant
           instance attribute?
@@ -93,14 +93,12 @@ test = {
           >>> # Testing BodyguardAnt parameters
           >>> bodyguard = BodyguardAnt()
           >>> BodyguardAnt.food_cost
-          c9452203eb0b0f0bd2454586a6c2fc5c
-          # locked
+          4
           >>> bodyguard.armor
-          20d533d3e06345c8bd7072212867f2d1
-          # locked
+          2
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         }
       ],
       'scored': True,

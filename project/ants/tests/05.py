@@ -5,7 +5,7 @@ test = {
     {
       'cases': [
         {
-          'answer': '9b8f7869c0cf94ceb6a862dc352b4df1',
+          'answer': 'By accessing the place instance attribute, which is a Place object',
           'choices': [
             'By accessing the place instance attribute, which is a Place object',
             r"""
@@ -16,11 +16,11 @@ test = {
             'By calling the FireAnt constructor'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'question': 'How can you obtain the current place of a FireAnt?'
         },
         {
-          'answer': '81e2e777eb97c4cb836bdcb2fbb428d6',
+          'answer': 'By accessing the bees instance attribute, which is a list of Bee objects',
           'choices': [
             r"""
             By accessing the bees instance attribute, which is a list of Bee
@@ -34,11 +34,11 @@ test = {
             'By calling the Bee constructor, passing in the place instance'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'question': 'How can you obtain all of the Bees currently in some place?'
         },
         {
-          'answer': 'c95a4e74584be420b1318afb809bb642',
+          'answer': 'Yes, but you should iterate over a copy of the list to avoid skipping elements',
           'choices': [
             r"""
             Yes, but you should iterate over a copy of the list to avoid skipping
@@ -51,7 +51,7 @@ test = {
             """
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'question': 'Can you iterate over a list while mutating it?'
         }
       ],
@@ -65,14 +65,12 @@ test = {
           >>> # Testing FireAnt parameters
           >>> fire = FireAnt()
           >>> FireAnt.food_cost
-          62674984f877ec783f37e8b8b9c264d0
-          # locked
+          5
           >>> fire.armor
-          d89cf7c79d5a479b0f636734143ed5e6
-          # locked
+          1
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         },
         {
           'code': r"""
@@ -82,18 +80,15 @@ test = {
           >>> place.add_insect(Bee(3))      # Add a Bee with 3 armor
           >>> place.add_insect(Bee(5))      # Add a Bee with 5 armor
           >>> len(place.bees)               # How many bees are there?
-          20d533d3e06345c8bd7072212867f2d1
-          # locked
+          2
           >>> place.bees[0].action(colony)  # The first Bee attacks FireAnt
           >>> len(place.bees)               # How many bees are left?
-          d89cf7c79d5a479b0f636734143ed5e6
-          # locked
+          1
           >>> place.bees[0].armor           # What is the armor of the remaining Bee?
-          20d533d3e06345c8bd7072212867f2d1
-          # locked
+          2
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         },
         {
           'code': r"""

@@ -5,7 +5,7 @@ test = {
     {
       'cases': [
         {
-          'answer': '9bc4c1f8c64f8980fa7a81c950465b76',
+          'answer': 'If the insect is not watersafe, its armor is reduced to 0. Otherwise, nothing happens.',
           'choices': [
             r"""
             If the insect is not watersafe, its armor is reduced to 0.
@@ -16,21 +16,21 @@ test = {
             'The insect goes for a swim.'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'question': 'What happens when an insect is added to a Water Place?'
         },
         {
-          'answer': 'fae228bbdefaf89611ef0df5ee7e8225',
+          'answer': 'class attribute',
           'choices': [
             'class attribute',
             'instance attribute'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'question': 'What type of attribute should "watersafe" be?'
         },
         {
-          'answer': '127cd87858e6c0a9f29f199fb2e2be0a',
+          'answer': 'reduce_armor, in the Insect class',
           'choices': [
             'reduce_armor, in the Insect class',
             'remove_insect, in the Place class',
@@ -38,7 +38,7 @@ test = {
             'remove_ant, in the AntColony class'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'question': r"""
           What method deals damage to an Insect and removes it from its place
           if its armor reaches 0?
